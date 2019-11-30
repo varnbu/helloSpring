@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
-public class HeroService implements IHeroService {
+public class HeroServiceImpl implements IHeroService {
     @Autowired
     IHeroDao iHeroDao;
 
