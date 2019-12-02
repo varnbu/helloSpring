@@ -6,8 +6,12 @@ import java.util.List;
 
 public interface IHeroService {
     int add(Hero hero);
+
     int update(Hero hero);
-    int delete(Hero hero);
+
+    int delete(int id);
+
     Hero findById(int id);
+
     List<Hero> findHeroList();
 }

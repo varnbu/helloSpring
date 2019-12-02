@@ -22,17 +22,25 @@ public class HeroDaoImpl implements IHeroDao {
 
     @Override
     public int update(Hero hero) {
-        return 0;
+        return jdbcTemplate.update("update table_hero set name=? where id=?",
+                hero.getName(), hero.getId());
     }
 
     @Override
-    public int delete(Hero hero) {
-        return 0;
+    public int delete(int id) {
+        return jdbcTemplate.update("delete from table_hero where id=?0",
+                id);
     }
 
     @Override
     public Hero findById(int id) {
-        return null;
+        List<Hero> list = jdbcTemplate.query("select * from table_hero where id=?", new Object[]{id}, new BeanPropertyRowMapper(Hero.class));
+        if (list != null && list.size() > 0) {
+            Hero hero = list.get(0);
+            return hero;
+        } else {
+            return null;
+        }
     }
 
     @Override

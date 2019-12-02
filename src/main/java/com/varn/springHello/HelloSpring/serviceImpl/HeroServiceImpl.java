@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 public class HeroServiceImpl implements IHeroService {
     @Autowired
@@ -19,17 +20,17 @@ public class HeroServiceImpl implements IHeroService {
 
     @Override
     public int update(Hero hero) {
-        return 0;
+        return iHeroDao.update(hero);
     }
 
     @Override
-    public int delete(Hero hero) {
-        return 0;
+    public int delete(int id) {
+        return iHeroDao.delete(id);
     }
 
     @Override
     public Hero findById(int id) {
-        return null;
+        return iHeroDao.findById(id);
     }
 
     @Override

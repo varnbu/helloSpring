@@ -3,10 +3,7 @@ package com.varn.springHello.HelloSpring.web;
 import com.varn.springHello.HelloSpring.c.Hero;
 import com.varn.springHello.HelloSpring.service.IHeroService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -16,7 +13,7 @@ public class heroController {
     @Autowired
     IHeroService iHeroService;
 
-    @RequestMapping("/test")
+    @RequestMapping("test")
     public String test() {
         return "hero test";
     }
@@ -42,5 +39,23 @@ public class heroController {
         } else {
             return 0;
         }
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public String updateHero(@PathVariable("id") int id, @RequestParam(value = "name", required = true) String name) {
+        Hero hero = new Hero();
+        hero.setId(id);
+        hero.setName(name);
+        int count = iHeroService.update(hero);
+        if (count > 0) {
+            return hero.getName();
+        } else {
+            return "update fail";
+        }
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public Hero getHero(@PathVariable("id") int id) {
+        return iHeroService.findById(id);
     }
 }
