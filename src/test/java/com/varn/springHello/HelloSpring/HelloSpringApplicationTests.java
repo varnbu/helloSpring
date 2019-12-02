@@ -1,5 +1,8 @@
 package com.varn.springHello.HelloSpring;
 
+import static org.hamcrest.Matchers.equalTo;
+import static org.junit.Assert.assertThat;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -29,7 +32,7 @@ class HelloSpringApplicationTests {
 
     public void getHello() throws Exception {
         ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
-//        assertThat(response.getBody(), equalTo("hello"));
+        assertThat(response.getBody(), equalTo("hello"));
     }
 
 }
