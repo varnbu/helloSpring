@@ -11,8 +11,11 @@ import java.util.List;
 
 @Repository
 public class HeroDaoImpl implements IHeroDao {
-    @Autowired
     private JdbcTemplate jdbcTemplate;
+
+    public HeroDaoImpl(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
 
     @Override
     public int add(Hero hero) {

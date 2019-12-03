@@ -10,8 +10,11 @@ import java.util.List;
 
 @Service
 public class HeroServiceImpl implements IHeroService {
-    @Autowired
     IHeroDao iHeroDao;
+
+    public HeroServiceImpl(IHeroDao iHeroDao) {
+        this.iHeroDao = iHeroDao;
+    }
 
     @Override
     public int add(Hero hero) {
