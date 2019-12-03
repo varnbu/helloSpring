@@ -1,10 +1,12 @@
 package com.varn.springHello.HelloSpring;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,6 +15,8 @@ import java.util.Arrays;
 @SpringBootApplication
 @RestController
 public class HelloSpringApplication {
+    @Value("${my.name}")
+    private String name;
 
     public static void main(String[] args) {
         SpringApplication.run(HelloSpringApplication.class, args);
@@ -20,6 +24,7 @@ public class HelloSpringApplication {
 
     @RequestMapping("/hello")
     public String hello() {
+        System.out.println(this.name.toString());
         return "hello";
     }
 
