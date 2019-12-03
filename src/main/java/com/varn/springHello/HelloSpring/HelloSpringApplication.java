@@ -1,5 +1,7 @@
 package com.varn.springHello.HelloSpring;
 
+import com.varn.springHello.HelloSpring.c.MdBean;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -18,6 +20,9 @@ public class HelloSpringApplication {
     @Value("${my.name}")
     private String name;
 
+    @Autowired
+    MdBean md ;
+
     public static void main(String[] args) {
         SpringApplication.run(HelloSpringApplication.class, args);
     }
@@ -25,6 +30,7 @@ public class HelloSpringApplication {
     @RequestMapping("/hello")
     public String hello() {
         System.out.println(this.name.toString());
+        System.out.println(md.getName()+md.getWant());
         return "hello";
     }
 
