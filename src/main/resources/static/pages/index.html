@@ -9,8 +9,8 @@
 <div>
 
 
-    <form action="/file/upload" method="post">
-        <input type="text" value="" name="fileName">
+    <form action="/file/upload" method="post" enctype="multipart/form-data">
+        <input type="file" value="" accept="image/jpg" name="fileName">
         <button type="submit">提交</button>
     </form>
 

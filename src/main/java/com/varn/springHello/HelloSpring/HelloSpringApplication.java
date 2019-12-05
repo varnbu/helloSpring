@@ -2,6 +2,7 @@ package com.varn.springHello.HelloSpring;
 
 import com.varn.springHello.HelloSpring.c.MdBean;
 import com.varn.springHello.HelloSpring.c.SomeStringBean;
+import com.varn.springHello.HelloSpring.storage.StorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
@@ -51,6 +52,13 @@ public class HelloSpringApplication {
             for (String name : beanNames) {
 //                System.out.println(name);
             }
+        };
+    }
+
+    @Bean CommandLineRunner init(StorageService storageService){
+        return args -> {
+            storageService.deleteAll();
+            storageService.init();
         };
     }
 }
