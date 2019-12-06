@@ -1,5 +1,6 @@
 package com.varn.springHello.HelloSpring.web;
 
+import com.varn.springHello.HelloSpring.storage.StorageNotFoundException;
 import com.varn.springHello.HelloSpring.storage.StorageService;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -55,5 +56,9 @@ public class HeroFileController {
         System.out.println(file.getOriginalFilename());
         redirectAttributes.addFlashAttribute("msg", "you successfully upload " + file.getOriginalFilename() + "!");
         return "redirect:/";
+    }
+    @ExceptionHandler(StorageNotFoundException.class)
+    public ResponseEntity handStorageFileNotFound(StorageNotFoundException exc){
+        return ResponseEntity.notFound().build();
     }
 }
