@@ -1,9 +1,8 @@
-package com.varn.springHello.HelloSpring.serviceImpl;
+package com.varn.springHello.HelloSpring.service.serviceImpl;
 
 import com.varn.springHello.HelloSpring.c.Hero;
 import com.varn.springHello.HelloSpring.dao.IHeroDao;
 import com.varn.springHello.HelloSpring.service.IHeroService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

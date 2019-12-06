@@ -1,4 +1,4 @@
-package com.varn.springHello.HelloSpring.daoImpl;
+package com.varn.springHello.HelloSpring.dao;
 
 import com.varn.springHello.HelloSpring.c.Hero;
 import com.varn.springHello.HelloSpring.dao.IHeroDao;
