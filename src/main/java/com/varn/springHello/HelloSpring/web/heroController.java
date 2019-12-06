@@ -15,6 +15,11 @@ public class heroController {
 
     @RequestMapping("test")
     public String test() {
+
+        char a = 'a';
+        int n1 = 'a';
+        char a1 = '\u0041';
+
         return "hero test";
     }
 
