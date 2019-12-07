@@ -5,6 +5,7 @@ import com.varn.springHello.HelloSpring.service.IHeroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -19,6 +20,23 @@ public class heroController {
         char a = 'a';
         int n1 = 'a';
         char a1 = '\u0041';
+
+        int[] arr = new int[5];
+        int[] arr2 = new int[]{81, 32, 43, 42,90,46,75,66,45};
+
+        String[] names = {"abc", "xyz", "zoo"};
+        String s = names[1];
+        names[1] = "cat";
+        System.out.println(s);
+
+        // foreach 循环
+        for (int n : arr2) {
+            System.out.println(n);
+        }
+        System.out.println(Arrays.toString(arr2));
+
+
+
 
         return "hero test";
     }
