@@ -9,8 +9,13 @@ import java.util.List;
 
 @Service
 public class MHeroService {
-    @Autowired
+
     private MIHeroMapper miHeroMapper;
+
+    public MHeroService(MIHeroMapper miHeroMapper) {
+        this.miHeroMapper = miHeroMapper;
+    }
+
 
     public List<Hero> findHeroList() {
         return miHeroMapper.findHeroList();

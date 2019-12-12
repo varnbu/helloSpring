@@ -17,6 +17,7 @@ public class mHero {
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public List<Hero> getList() {
+        System.out.println("mybatis 引入与使用");
         return mHeroService.findHeroList();
     }
 }
