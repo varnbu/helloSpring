@@ -12,12 +12,16 @@ import java.util.List;
 @RestController
 @RequestMapping("/mhero")
 public class mHero {
-    @Autowired
     MHeroService mHeroService;
+
+    public mHero(MHeroService mHeroService) {
+        this.mHeroService = mHeroService;
+    }
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public List<Hero> getList() {
         System.out.println("mybatis 引入与使用");
+        System.out.println("热部署测试");
         return mHeroService.findHeroList();
     }
 }
