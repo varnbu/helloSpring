@@ -41,6 +41,8 @@ public class HelloSpringApplication {
         System.out.println(md.getWant());
         System.out.println(sb.getName());
         System.out.println(sb.getLabel());
+        int a = '2';
+        System.out.println(a);
         return "hello";
     }
 
